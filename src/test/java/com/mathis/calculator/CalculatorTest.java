@@ -7,27 +7,15 @@ import org.junit.jupiter.api.AfterEach;
 
 
 class CalculatorTest {
-    private Calculator calc;
-
-    @BeforeEach
-    void setUp() {
-        calc = new Calculator();
-    }
-
-    @AfterEach
-    void tearDown() {
-        calc = null;
-    }
-
     @Test
     void testAdd() {
-        assertEquals(5, calc.add(2, 3));
-        assertEquals(0, calc.add(-2, 2));
+        assertEquals(5, Calculator.add(2, 3));
+        assertEquals(0, Calculator.add(-2, 2));
     }
 
     @Test
     void testDivide() {
-        assertEquals(2, calc.divide(6, 3));
-        assertEquals(0, calc.divide(0, 5));
+        assertEquals(2, Calculator.divide(6, 3));
+        assertEquals(0, Calculator.divide(0, 5));
     }
 }
