@@ -4,16 +4,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Calculator {
-    public static int add(int a, int b) {
-        return a + b;
+    public int add(int opG, int opD) {
+        long result = (long) opG + (long) opD;
+        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            throw new ArithmeticException("Overflow lors de l'addition");
+        }
+        return (int) result;
     }
 
-    public int subtract(int a, int b) {
-        return a - b;
-    }
-
-    public static int divide(int a, int b) {
-        return a / b;
+    public int divide(int opG, int opD) {
+        if (opD == 0) {
+            throw new ArithmeticException("Division par zéro");
+        }
+        return opG / opD;
     }
 
     public Set<Integer> ensembleChiffres(int pNombre) {
