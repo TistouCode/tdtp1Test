@@ -7,6 +7,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Set;
+
 
 class CalculatorTest {
     @Test
@@ -32,5 +34,15 @@ class CalculatorTest {
     })
     void testAddParametre(int opG, int opD, int resultatAttendu) {
         assertEquals(resultatAttendu, Calculator.add(opG, opD));
+    }
+
+
+    @Test
+    void testEnsembleChiffres() {
+        Calculator calc = new Calculator();
+        assertEquals(Set.of(6, 7, 9), calc.ensembleChiffres(7679));
+        assertEquals(Set.of(1), calc.ensembleChiffres(-11));
+        assertEquals(Set.of(0), calc.ensembleChiffres(0));
+        assertEquals(Set.of(2, 3, 4), calc.ensembleChiffres(2342));
     }
 }
